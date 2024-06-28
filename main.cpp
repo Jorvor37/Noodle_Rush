@@ -9,7 +9,7 @@ int main(){
     Game game;
     
     หวัดดีเห็นมั้ย 
-    
+    โย่ว ๆๆๆๆๆๆๆ
     //Game Loop
     while(game.running())
     {
