@@ -7,7 +7,9 @@ using namespace sf;
 int main(){
     //Init game engine
     Game game;
-
+    
+    หวัดดีเห็นมั้ย 
+    
     //Game Loop
     while(game.running())
     {
