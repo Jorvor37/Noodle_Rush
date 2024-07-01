@@ -1,29 +1,27 @@
 #include <iostream>
+#include <cstdlib>
+#include "test.h"
+//#include "node.h"
+//#include "stack.h"
 
-#include "Game.h"
-
-using namespace sf;
+using namespace std;
 
 int main(){
     //Init game engine
-    Game game;
+    //Game game;
+    int day=0;
+    int i;
+    int a,b,c,d;
     
-    หวัดดีเห็นมั้ย 
-    
-    //Game Loop
-    while(game.running())
-    {
 
-        //Update
-        game.update();
-
-        //Render
-        game.render();
-        
+    for(i=0; i<=5+2*day; i++, day++)
+    {   
+        a = rand()%3+1;
+        b = rand()%3+1;
+        c = rand()%4+1;
+        d = rand()%2+1;
+        order bowl(a,b,c,d);
     }
-    
-    //End of application
-
 
     return 0;
 }
