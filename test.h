@@ -51,19 +51,19 @@ order::order(int choice_n, int choice_m, int choice_s, int choice_v)
     }
     switch(choice_s)
     {
-        case 1: s="Dried"; break;
+        case 1: s="Dried "; break;
         case 2: s= "Clear"; break;
         case 3: s= "Tom Yum"; break;
         case 4: s= "Nam Tok"; break;
     }
     switch(choice_v)
     {
-        case 1: v="with Veggies"; break;
-        case 2: v= "without Veggies"; break;
+        case 1: v=" & Veggies"; break;
+        case 2: v= " & No Veggies"; break;
     }
     
-    if (soup==1) name = s + n + "with" + m + v;
-    else name = n + "in" + s + "Soup" + "with" + m + v;
+    if (soup==1) name = s + n + " with " + m + v;
+    else name = n + " in " + s + " Soup with " + m + v;
     
     cout<<"Menu: "<< name;
 }
