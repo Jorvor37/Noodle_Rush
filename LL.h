@@ -42,17 +42,19 @@ void LL::insert(order x){
 void LL::print_order(){
    nodePtr t;
   for(t=hol; t; t=t->next)
-
   {
-       t->print();
+    t->print();
   }
 }
 
 LL::~LL(){
-  cout<<"It's the end of the day";
-  nodePtr t;   
-  t=hol;
-  while(t){
-
-  } 
+  cout<<"It's the end of the day"<<endl;
+  nodePtr t;
+  t = hol;
+  int i;
+  for (i = 0; i < size; i++) {
+    t = hol->get_next();
+    delete hol;
+    hol = t;
+  }
 } 

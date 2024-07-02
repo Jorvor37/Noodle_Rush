@@ -25,7 +25,13 @@ class order
         bool select_soup();
         bool select_veg();
         float cashier();
+        string get_name();
 };
+
+string order::get_name()
+{
+    return name;
+}
 
 order::order(int choice_n, int choice_m, int choice_s, int choice_v)
 {
@@ -65,12 +71,12 @@ order::order(int choice_n, int choice_m, int choice_s, int choice_v)
     if (soup==1) name = s + n + " with " + m + v;
     else name = n + " in " + s + " Soup with " + m + v;
     
-    cout<<"Menu: "<< name;
+    cout<<"Menu: "<<name<<endl;
 }
 
 order::~order()
 {
-    cout<<name<<" is ready to serve!"<<endl;
+    //cout<<name<<" is ready to serve!"<<endl;
 }
 
 void order::print()

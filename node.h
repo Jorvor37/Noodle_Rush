@@ -26,8 +26,9 @@ void node::print(){
 }
 
 node::~node(){
-    cout<<"Deleting "<<endl;
-    bowl.print();
+    //cout<<"Deleting "<<endl;
+    //bowl.print();
+    cout<<bowl.get_name()<<" is ready to serve!"<<endl;
 }
 
 
