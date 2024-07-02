@@ -15,16 +15,19 @@ public:
     node * get_next() {return next;}
    
 };
-node::node(order x){
+node::node(order x)
+{
   bowl=x;
   next=NULL; 
 }
+
 void node::print(){
-    //cout<<bowl.print()<<" " ; //temp->print()
+    bowl.print();
 }
 
 node::~node(){
-     //cout<<"Deleting "<< bowl.print()<<endl;
+    cout<<"Deleting "<<endl;
+    bowl.print();
 }
 
 

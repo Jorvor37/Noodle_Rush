@@ -9,7 +9,7 @@ class LL{
   public:
       LL();
       void insert(order);
-      void printList();
+      void print_order();
      ~LL();
 };
 
@@ -18,31 +18,35 @@ LL::LL(){
   size=0;
 }
 
-
-
 void LL::insert(order x){
-   
-   	nodePtr t=hol;
-    	//search for location
+   nodePtr newNode = new node(x);
+
+    if (hol == nullptr) {
+        hol = newNode;
+    } else {
+        nodePtr t = hol;
+        while (t->next) {
+            t = t->next;
+        }
+        t->next = newNode;
+    }
+    size++;
+   	
+    /*nodePtr t=hol;
+    //search for location
    	while(t->next) t=t->next;
    	t->next=new node(x);
-  
-     size++;
+    size++;*/
 }
 
-
-void LL::printList (){
+void LL::print_order(){
    nodePtr t;
   for(t=hol; t; t=t->next)
 
   {
        t->print();
-       cout<<" ";
   }
-  
-  cout<<"NULL" <<endl;
 }
-
 
 LL::~LL(){
   cout<<"It's the end of the day";
