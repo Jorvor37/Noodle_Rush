@@ -1,10 +1,8 @@
 #include <iostream>
 #include <cstdlib>
-//#include "node.h"
-//#include "stack.h"
 #include "stdlib.h"
-#ifndef game_h
-#define game_h
+#ifndef order_h
+#define order_h
 
 using namespace std;
 
@@ -18,8 +16,10 @@ class order
         int soup; //1. dried 2. clear 3. tom yum 4. nam tok
         int veg; //1. yes 2.no
     public:
+        order(){};
         order(int,int,int,int);
         ~order();
+        void print();
         bool select_noodle();
         bool select_meat();
         bool select_soup();
@@ -71,6 +71,11 @@ order::order(int choice_n, int choice_m, int choice_s, int choice_v)
 order::~order()
 {
     cout<<name<<" is ready to serve!"<<endl;
+}
+
+void order::print()
+{
+    cout<<name<<" "<<endl;
 }
 
 bool order::select_noodle()

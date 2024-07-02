@@ -1,44 +1,32 @@
-/*
 #ifndef node_h
 #define node_h
-#include "Game.h"
+#include "order.h"
 
-class NODE{
+class node
+{ public:
     order bowl;
-    NODE *nextPtr;
+    node *next;
+
 public:
-    NODE(order);
-    ~NODE();
-    void set_next(NODE*);
-    NODE* get_next();
-    char get_value();
+   node(order);
+   void print();
+   ~node();
+    void set_next(node* t) {next=t;}
+    node * get_next() {return next;}
+   
 };
-typedef NODE* NodePtr;
-
-
-NODE::NODE(order x){
-    bowl=x;
-    nextPtr=NULL;
-    //pPtr =NULL; not using doubly
+node::node(order x){
+  bowl=x;
+  next=NULL; 
+}
+void node::print(){
+    //cout<<bowl.print()<<" " ; //temp->print()
 }
 
-NODE* NODE::get_next(){
-    return nextPtr;
-}
-
-char NODE::get_value(){
-    return data;
+node::~node(){
+     //cout<<"Deleting "<< bowl.print()<<endl;
 }
 
 
-void NODE::set_next(NODE *t){
-     nextPtr=t;
-
-}
-NODE::~NODE(){
-     //cout<<"deleting "<<data<<endl;
-
-}
 
 #endif
-*/
