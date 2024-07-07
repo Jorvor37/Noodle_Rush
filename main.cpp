@@ -4,13 +4,14 @@
 #include "game.h"
 #include "node.h"
 #include "LL.h"
-
-
+#include "tutorial.h"
 
 using namespace std;
 
 
 int main(){
+
+    tutorial();
     //Init game engine
     //Game game;
 

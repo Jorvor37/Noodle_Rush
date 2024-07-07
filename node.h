@@ -31,6 +31,4 @@ node::~node(){
     cout<<bowl.get_name()<<" is ready to serve!"<<endl;
 }
 
-
-
 #endif
