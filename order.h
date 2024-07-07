@@ -109,7 +109,7 @@ bool order::select_meat(int meat)
     int x;
     do
     {
-        system("clear"); 
+        //system("clear"); 
         cout<<"Select Meat's Type?"<<endl;
         cout<<" 1. Pork"<<endl<<" 2. Beef"<<endl<<" 3. Seafood"<<endl;
         cin>>x;
@@ -129,7 +129,7 @@ bool order::select_soup(int soup)
     int x;
     do
     {
-        system("clear"); 
+        //system("clear"); 
         cout<<"Select Soup's Type?"<<endl;
         cout<<" 1. Dried Noodle"<<endl<<" 2. Clear Soup"<<endl<<" 3. Tom Yum Soup"<<endl<<" 4. Nam Tok Soup"<<endl;
         cin>>x;
@@ -149,7 +149,7 @@ bool order::select_veg(int veg)
     int x;
     do 
     {
-        system("clear"); 
+        //system("clear"); 
         cout<<"With Veggies?"<<endl;
         cout<<" 1. Yes"<<endl<<" 2. No"<<endl;
         cin>>x;
