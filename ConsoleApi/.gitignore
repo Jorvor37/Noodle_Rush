@@ -1,9 +1,0 @@
-# Ignore build outputs
-*.exe
-*.o
-*.obj
-*.pdb
-
-# Ignore temporary files
-*.tmp
-*.log

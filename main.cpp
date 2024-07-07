@@ -13,7 +13,9 @@ using namespace std;
 int main(){
     //Init game engine
     //Game game;
+
     LL line;
+    order bowl;
     int day=0,n=10;
     int i;
     int a,b,c,d;
@@ -27,7 +29,12 @@ int main(){
         c = rand()%4+1;
         d = rand()%2+1;
         line.insert(order(a,b,c,d));
-        timer(2);
+        timer(3);
+        bowl.select_noodle(a);
+        bowl.select_meat(b);
+        bowl.select_soup(c);
+        bowl.select_veg(d);
+        
     }
     line.print_order();
     day++;

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstdlib>
-#include "stdlib.h"
+//#include "stdlib.h"
 #ifndef order_h
 #define order_h
 
@@ -20,10 +20,10 @@ class order
         order(int,int,int,int);
         ~order();
         void print();
-        bool select_noodle();
-        bool select_meat();
-        bool select_soup();
-        bool select_veg();
+        bool select_noodle(int);
+        bool select_meat(int);
+        bool select_soup(int);
+        bool select_veg(int);
         float cashier();
         string get_name();
 };
@@ -70,8 +70,9 @@ order::order(int choice_n, int choice_m, int choice_s, int choice_v)
     
     if (soup==1) name = s + n + " with " + m + v;
     else name = n + " in " + s + " Soup with " + m + v;
-    
-    cout<<"Menu: "<<name<<endl;
+    cout<<"\t\t\t___________________________________________________________"<<endl;
+    cout<<"\n\t\t\t  "<<name<<endl;
+    cout<<"\t\t\t___________________________________________________________"<<endl;
 }
 
 order::~order()
@@ -84,11 +85,11 @@ void order::print()
     cout<<name<<" "<<endl;
 }
 
-bool order::select_noodle()
+bool order::select_noodle(int noodle)
 {
     int x;
     do{
-        system("CLS"); 
+        system("clear"); 
         cout<<"Select Noodle's Type?"<<endl;
         cout<<" 1. Rice Noodle"<<endl<<" 2. Wide Rice Noodle"<<endl<<" 3. Egg Noodle"<<endl;
         cin>>x;
@@ -103,14 +104,14 @@ bool order::select_noodle()
     else return true;
 }
 
-bool order::select_meat()
+bool order::select_meat(int meat)
 {
     int x;
     do
     {
-        system("CLS"); 
+        system("clear"); 
         cout<<"Select Meat's Type?"<<endl;
-        cout<<" 1. Beef"<<endl<<" 2. Pork"<<endl<<" 3. Seafood"<<endl;
+        cout<<" 1. Pork"<<endl<<" 2. Beef"<<endl<<" 3. Seafood"<<endl;
         cin>>x;
     } while (x<1 || x>3);
 
@@ -123,12 +124,12 @@ bool order::select_meat()
     else return true;
 }
 
-bool order::select_soup()
+bool order::select_soup(int soup)
 {
     int x;
     do
     {
-        system("CLS"); 
+        system("clear"); 
         cout<<"Select Soup's Type?"<<endl;
         cout<<" 1. Dried Noodle"<<endl<<" 2. Clear Soup"<<endl<<" 3. Tom Yum Soup"<<endl<<" 4. Nam Tok Soup"<<endl;
         cin>>x;
@@ -143,12 +144,12 @@ bool order::select_soup()
     else return true;
 }
 
-bool order::select_veg()
+bool order::select_veg(int veg)
 {
     int x;
     do 
     {
-        system("CLS"); 
+        system("clear"); 
         cout<<"With Veggies?"<<endl;
         cout<<" 1. Yes"<<endl<<" 2. No"<<endl;
         cin>>x;
