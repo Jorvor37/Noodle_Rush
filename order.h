@@ -89,7 +89,7 @@ bool order::select_noodle(int noodle)
 {
     int x;
     do{
-        system("clear"); 
+        //system("clear"); 
         cout<<"Select Noodle's Type?"<<endl;
         cout<<" 1. Rice Noodle"<<endl<<" 2. Wide Rice Noodle"<<endl<<" 3. Egg Noodle"<<endl;
         cin>>x;

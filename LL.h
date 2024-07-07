@@ -31,7 +31,6 @@ void LL::insert(order x){
         t->next = newNode;
     }
     
-    size++;
    	
     /*nodePtr t=hol;
     //search for location
