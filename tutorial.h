@@ -6,7 +6,7 @@ using namespace std;
 
 int tutorial()
 {
-    order test;
+    //order test;
     order bowl;
     system("clear");
     cout<<"\t\t\tTUTORIAL \n\n";
