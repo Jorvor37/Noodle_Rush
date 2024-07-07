@@ -16,24 +16,26 @@ int main(){
 
     LL line;
     order bowl;
-    int day=0,n=10;
+    int day=1,n=7;
     int i;
     int a,b,c,d;
 
     
    while(day<7){
-    for(i=0; i<=5+2*day; i++)
+    for(i=0; i<=2+day; i++)
     {   
         a = rand()%3+1;
         b = rand()%3+1;
         c = rand()%4+1;
         d = rand()%2+1;
         line.insert(order(a,b,c,d));
-        timer(3);
+        timer(n);
+        /*
         bowl.select_noodle(a);
         bowl.select_meat(b);
         bowl.select_soup(c);
-        bowl.select_veg(d);
+        bowl.select_veg(d); 
+        */ 
         
     }
     line.print_order();
