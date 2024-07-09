@@ -17,7 +17,7 @@ void timer(int sec)
         for(int j = 0; j <= i; j++) {
             cout << "[]";
         }
-        cout << flush;
+        fflush(stdin);
         sleep(1); 
         cout << "\n\t\t\t\t\t\t" << "..." << (i + 1)*100/sec<< "%..." << flush;
         cout << "\033[F"; // ANSI escape code to move cursor up one line
@@ -28,7 +28,7 @@ void timer(int sec)
 
 void pressEnterToContinue()
 {
-    cout << flush;
+    fflush(stdin);
     cout << "Press Enter to Continue"<<endl;
     while (getchar()!='\n');
     //system("clear");

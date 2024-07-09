@@ -1,5 +1,9 @@
 #include <iostream>
 #include <cstdlib>
+#include <stdio.h> 
+#include <stdlib.h>
+
+
 #include "stdlib.h"
 #include "game.h"
 #ifndef order_h
@@ -112,7 +116,7 @@ bool order::select_meat()
     do
     {
         //system("clear");
-        fflush(stdin); 
+        fflush(stdin);
         cout<<"Select Meat's Type?"<<endl;
         cout<<" 1. Pork"<<endl<<" 2. Beef"<<endl<<" 3. Seafood"<<endl;
         cin>>x;
@@ -181,6 +185,7 @@ void order::make(){
   meat = select_meat();
   soup = select_soup();
   veg = select_veg();
+  cout<<name<<" is ready to serve!"<<endl;
   cashier();
   fflush(stdin);
   pressEnterToContinue();

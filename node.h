@@ -33,7 +33,7 @@ void node::make_bowl(){
 node::~node(){
     //cout<<"Deleting "<<endl;
     //bowl.print();
-    cout<<bowl.get_name()<<" is ready to serve!"<<endl;
+    //cout<<bowl.get_name()<<" is ready to serve!"<<endl;
 }
 
 #endif

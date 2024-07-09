@@ -4,6 +4,7 @@
 #include "game.h"
 #include "node.h"
 #include "LL.h"
+#include "queue.h"
 #include "tutorial.h"
 
 using namespace std;
@@ -15,7 +16,7 @@ int main(){
     //Init game engine
     //Game game;
 
-    LL line;
+    queue q;
     order bowl;
     int day=1,time=7;
     int i;
@@ -30,20 +31,20 @@ cout<<"/*   ____         _____                     _   _                 _ _    
 
     
     while(day<7){
+        cout<<"Day "<<day<<endl;
         for(i=0; i<=2+day; i++)
         {   
             a = rand()%3+1;
             b = rand()%3+1;
             c = rand()%4+1;
             d = rand()%2+1;
-            line.insert(order(a,b,c,d,time));
+            q.enqueue(order(a,b,c,d,0));
         }
-        line.print_order();
-        line.do_order();
+        q.print_order();
+        q.do_order();
         
         day++;
         time--;
     }
-    
     return 0;
 }
