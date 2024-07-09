@@ -11,6 +11,8 @@
 
 using namespace std;
 
+float money=0;
+
 class order
 {
     private:
@@ -175,7 +177,6 @@ bool order::select_veg()
 
 void order::make(){
   bool noodle, meat, soup, veg;
-  cashier();
   pressEnterToContinue();
   cout<<"\t\t\t___________________________________________________________"<<endl;
   cout<<"\n\t\t\t  "<<get_name()<<endl;
@@ -185,7 +186,8 @@ void order::make(){
   meat = select_meat();
   soup = select_soup();
   veg = select_veg();
-  cout<<name<<" is ready to serve!"<<endl;
+  pressEnterToContinue();
+  cout<<name<<" is ready to serve!"<<endl<<endl;
   cashier();
   fflush(stdin);
   pressEnterToContinue();
@@ -193,7 +195,38 @@ void order::make(){
 
 void order::cashier()
 {
-    cout<<price<<endl;
+        float payment = price + ((rand() % 100 + 1)); // Random payment larger than menu price
+        float correctChange = payment - price;
+        float playerChange;
+        float finalChange;
+
+
+        cout << "Menu Price: $" << price << endl;
+        cout << "Customer pays: $" << payment << endl;
+        cout << "Calculate the change to give back to the customer: $";
+        cin >> playerChange;
+
+        if (playerChange == correctChange) {
+            float tip = 0.3 * price;
+            cout << "Correct! You give the right change and earned a 30'%' tip: $" << tip << endl;
+            finalChange = price + tip;
+            money += finalChange;
+        } 
+        else if (playerChange < correctChange) {
+            cout << "Wrong! You gave less money back. The customer complains and requests more payment." << endl;
+            cout << "You should have given: $" << correctChange << " but you gave: $" << playerChange << endl;
+            finalChange = price-(correctChange-playerChange);
+            money += finalChange;
+        } 
+        else {
+            cout << "Wrong! You gave too much money back. The customer happily takes the extra money." << endl;
+            cout << "You should have given: $" << correctChange << " but you gave: $" << playerChange << endl;
+            finalChange = payment-playerChange;
+            money += finalChange;
+        }
+
+        cout << "Final Income $" << finalChange <<endl;
+        cout << "Total Cash $" << money << endl;
 }
 
 #endif
