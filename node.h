@@ -10,6 +10,7 @@ class node
 public:
    node(order);
    void print();
+   void make_bowl();
    ~node();
     void set_next(node* t) {next=t;}
     node * get_next() {return next;}
@@ -23,6 +24,10 @@ node::node(order x)
 
 void node::print(){
     bowl.print();
+}
+
+void node::make_bowl(){
+    bowl.make();
 }
 
 node::~node(){

@@ -5,7 +5,7 @@ using namespace std;
 
 int tutorial()
 {
-    order bowl(1,2,3,2);
+    order bowl(1,2,3,2,0);
     
     system("clear");
     cout<<"\t\t\tTUTORIAL \n\n";
@@ -27,10 +27,10 @@ int tutorial()
     cout<<"\tselect the right answer to serve a bowl of noodle.\n"<<endl;
     cout<<"if you pick the wrong ingredient, your money will get deducted 5 baht each.\n"<<endl;
 
-    bowl.select_noodle(1);
-    bowl.select_meat(2);
-    bowl.select_soup(3);
-    bowl.select_veg(2);
+    bowl.select_noodle();
+    bowl.select_meat();
+    bowl.select_soup();
+    bowl.select_veg();
     
     system("clear");
     cout<<"\t\t\t   Let's get started! \n";

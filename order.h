@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
-//#include "stdlib.h"
+#include "stdlib.h"
+#include "game.h"
 #ifndef order_h
 #define order_h
 
@@ -15,16 +16,18 @@ class order
         int meat; //1. pork 2. beef 3. seafood
         int soup; //1. dried 2. clear 3. tom yum 4. nam tok
         int veg; //1. yes 2.no
+        int time;
     public:
         order(){};
-        order(int,int,int,int);
+        order(int,int,int,int, int);
         ~order();
         void print();
-        bool select_noodle(int);
-        bool select_meat(int);
-        bool select_soup(int);
-        bool select_veg(int);
-        float cashier();
+        bool select_noodle();
+        bool select_meat();
+        bool select_soup();
+        bool select_veg();
+        void make();
+        void cashier();
         string get_name();
 };
 
@@ -33,13 +36,14 @@ string order::get_name()
     return name;
 }
 
-order::order(int choice_n, int choice_m, int choice_s, int choice_v)
+order::order(int choice_n, int choice_m, int choice_s, int choice_v, int t)
 {
     //set order
     noodle = choice_n;
     meat = choice_m;
     soup = choice_s;
     veg = choice_v;
+    time = t;
 
     //set name
     string n, m, s, v;
@@ -70,9 +74,6 @@ order::order(int choice_n, int choice_m, int choice_s, int choice_v)
     
     if (soup==1) name = s + n + " with " + m + v;
     else name = n + " in " + s + " Soup with " + m + v;
-    cout<<"\t\t\t___________________________________________________________"<<endl;
-    cout<<"\n\t\t\t  "<<name<<endl;
-    cout<<"\t\t\t___________________________________________________________"<<endl;
 }
 
 order::~order()
@@ -82,14 +83,15 @@ order::~order()
 
 void order::print()
 {
-    cout<<name<<" "<<endl;
+    cout<<name<<endl;
 }
 
-bool order::select_noodle(int noodle)
+bool order::select_noodle()
 {
     int x;
     do{
         //system("clear"); 
+        fflush(stdin);
         cout<<"Select Noodle's Type?"<<endl;
         cout<<" 1. Rice Noodle"<<endl<<" 2. Wide Rice Noodle"<<endl<<" 3. Egg Noodle"<<endl;
         cin>>x;
@@ -104,12 +106,13 @@ bool order::select_noodle(int noodle)
     else return true;
 }
 
-bool order::select_meat(int meat)
+bool order::select_meat()
 {
     int x;
     do
     {
-        //system("clear"); 
+        //system("clear");
+        fflush(stdin); 
         cout<<"Select Meat's Type?"<<endl;
         cout<<" 1. Pork"<<endl<<" 2. Beef"<<endl<<" 3. Seafood"<<endl;
         cin>>x;
@@ -124,12 +127,13 @@ bool order::select_meat(int meat)
     else return true;
 }
 
-bool order::select_soup(int soup)
+bool order::select_soup()
 {
     int x;
     do
     {
         //system("clear"); 
+        fflush(stdin);
         cout<<"Select Soup's Type?"<<endl;
         cout<<" 1. Dried Noodle"<<endl<<" 2. Clear Soup"<<endl<<" 3. Tom Yum Soup"<<endl<<" 4. Nam Tok Soup"<<endl;
         cin>>x;
@@ -144,12 +148,13 @@ bool order::select_soup(int soup)
     else return true;
 }
 
-bool order::select_veg(int veg)
+bool order::select_veg()
 {
     int x;
     do 
     {
         //system("clear"); 
+        fflush(stdin);
         cout<<"With Veggies?"<<endl;
         cout<<" 1. Yes"<<endl<<" 2. No"<<endl;
         cin>>x;
@@ -164,12 +169,26 @@ bool order::select_veg(int veg)
     else return true;
 }
 
+void order::make(){
+  bool noodle, meat, soup, veg;
+  cashier();
+  pressEnterToContinue();
+  cout<<"\t\t\t___________________________________________________________"<<endl;
+  cout<<"\n\t\t\t  "<<get_name()<<endl;
+  cout<<"\t\t\t___________________________________________________________"<<endl;
+  if (time!=0) timer(time);
+  noodle = select_noodle();
+  meat = select_meat();
+  soup = select_soup();
+  veg = select_veg();
+  cashier();
+  fflush(stdin);
+  pressEnterToContinue();
+}
 
-
-float order::cashier()
+void order::cashier()
 {
-    cout<<price;
-    return price;
+    cout<<price<<endl;
 }
 
 #endif

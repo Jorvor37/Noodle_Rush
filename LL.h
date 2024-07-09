@@ -10,6 +10,7 @@ class LL{
       LL();
       void insert(order);
       void print_order();
+      void do_order();
      ~LL();
 };
 
@@ -30,13 +31,20 @@ void LL::insert(order x){
         }
         t->next = newNode;
     }
-    
-   	
+    	
     /*nodePtr t=hol;
     //search for location
    	while(t->next) t=t->next;
    	t->next=new node(x);
     size++;*/
+}
+
+void LL::do_order(){
+  nodePtr t;
+  for (t=hol; t; t=t->next)
+  {
+    t->make_bowl();
+  }
 }
 
 void LL::print_order(){

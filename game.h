@@ -2,6 +2,8 @@
 #include <unistd.h>
 #include <stdio.h> 
 #include <stdlib.h>
+#ifndef game_h
+#define game_h
 
 using namespace std;
 
@@ -24,3 +26,12 @@ void timer(int sec)
     system("clear");
 }
 
+void pressEnterToContinue()
+{
+    flush;
+    cout << "Press Enter to Continue"<<endl;
+    while (getchar()!='\n');
+    //system("clear");
+}
+
+#endif
