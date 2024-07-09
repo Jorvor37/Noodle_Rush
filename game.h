@@ -28,7 +28,7 @@ void timer(int sec)
 
 void pressEnterToContinue()
 {
-    flush;
+    cout << flush;
     cout << "Press Enter to Continue"<<endl;
     while (getchar()!='\n');
     //system("clear");
