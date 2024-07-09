@@ -1,2 +1,3 @@
 Name      Day       Money
 MIND       0            0
+MIND2      1            2

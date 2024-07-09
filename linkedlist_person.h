@@ -2,6 +2,7 @@
 #define LINKEDLIST_PERSON_H
 
 #include "node_person.h"
+#include "Cal.h"
 
 using namespace std;
 
@@ -81,7 +82,7 @@ bool LinkedList::increment_money(const string& name, double amount) {
     NodePtr current = head;
     while (current != nullptr) {
         if (current->data.get_name() == name) {
-            current->data.set_money(current->data.get_money() + amount); // Increment money by amount
+            current->data.set_money(current->data.get_money() + amount); //กลับมาแก้ตรงนี้
             return true;
         }
         current = current->next;
