@@ -1,16 +1,22 @@
 #include <iostream>
 #include <cstdlib>
+#include <unistd.h>
 #include "order.h"
 #include "game.h"
 #include "node.h"
 #include "LL.h"
 #include "queue.h"
 #include "tutorial.h"
+#include "file.h"
+#include "increase_file.h"
 
 using namespace std;
 
 
 int main(){
+    LinkedList list;
+    string current_name;
+    check_and_write_person(list, current_name);
 
     //tutorial();
     //Init game engine
@@ -44,7 +50,14 @@ cout<<"/*   ____         _____                     _   _                 _ _    
         q.do_order();
         
         day++;
+        increaseday(list, current_name); //day++ in file.txt
         time--;
+        increasemoney(list, current_name, 2); //2คือแทนไว้ก่อนให้ function มันรันได้
     }
     return 0;
+    list.sort_by_money();
+    write_list_to_file(list, "filename.txt");
+    system("clear");
+    print_current_player(list, current_name);
+    print_scoreboard(list, "filename.txt");
 }
