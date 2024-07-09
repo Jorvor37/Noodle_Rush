@@ -14,7 +14,7 @@ private:
     NodePtr tail;
 
 public:
-    LinkedList() : head(nullptr), tail(nullptr) {}
+    LinkedList();
     ~LinkedList();
     void append(person p);
     bool exists(const string& name) const;
@@ -25,7 +25,10 @@ public:
     NodePtr get_head() const;
     void sort_by_money();
 };
-
+LinkedList::LinkedList(){
+    head = nullptr;
+    tail = nullptr;
+}
 LinkedList::~LinkedList() {
     NodePtr current = head;
     while (current != nullptr) {
