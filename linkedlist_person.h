@@ -85,7 +85,7 @@ bool LinkedList::increment_money(const string& name, double amount) {
     NodePtr current = head;
     while (current != nullptr) {
         if (current->data.get_name() == name) {
-            current->data.set_money(current->data.get_money() + amount); //กลับมาแก้ตรงนี้
+            current->data.set_money(amount);
             return true;
         }
         current = current->next;

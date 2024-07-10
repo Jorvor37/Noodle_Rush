@@ -52,13 +52,14 @@ cout<<"/*   ____         _____                     _   _                 _ _    
         q.do_order();
         
         day++;
-        increaseday(list, current_name); //day++ in file.txt
+        increaseday(list, current_name);
         time--;
-        increasemoney(list, current_name, 2); //2คือแทนไว้ก่อนให้ function มันรันได้
+        increasemoney(list, current_name, money);
+        list.sort_by_money();
+        write_list_to_file(list, "filename.txt");
     }
     return 0;
-    list.sort_by_money();
-    write_list_to_file(list, "filename.txt");
+    
     system("clear");
     print_current_player(list, current_name);
     print_scoreboard(list, "filename.txt");
