@@ -31,6 +31,10 @@ int tutorial()
     bowl.select_meat();
     bowl.select_soup();
     bowl.select_veg();
+
+    cout<<"\nA bowl is ready to serve!"<<endl;
+    cout<<"Let's check bill! \n"<<endl;
+    
     bowl.tutorialCashier();
 
     pressEnterToContinue();
