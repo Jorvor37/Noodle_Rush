@@ -16,6 +16,9 @@ int prologue()
     cout<<"to sustain our livelihood while generating enough profit to support those struggling with poverty and hunger. \n\n";
     sleep(3);
     cout<<"Welcome to our noodle shop, where every bowl served brings hope to our community. \n\n";
+    
+    pressEnterToContinue();
+    system("clear");
 
     return 0;
 

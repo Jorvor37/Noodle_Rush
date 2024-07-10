@@ -20,7 +20,7 @@ int main(){
     check_and_write_person(list, current_name);
 
     prologue();
-    //tutorial();
+    tutorial();
     //Init game engine
     //Game game;
 

@@ -1,5 +1,6 @@
 #include<iostream>
 #include "order.h"
+#include "game.h"
 using namespace std;
 #include<unistd.h>
 
