@@ -3,6 +3,7 @@
 #define queue_h
 #include "node.h"
 #include "order.h"
+#include "game.h"
 typedef node* nodePtr;
 
 
@@ -14,6 +15,7 @@ public:
     void dequeue();
     void print_order();
     void do_order();
+    int get_size();
     queue();
     ~queue();
 };
@@ -50,17 +52,21 @@ void queue::dequeue(){
   else cout<<"Empty queue"<<endl;
 }
 
+int queue::get_size(){
+  return size;
+}
+
 void queue::do_order(){
   nodePtr t;
-  for (t=headPtr; t; t=t->next)
+  int n=size;
+  for (int i=0; i<n; i++)
   {
+    t=headPtr;
     t->make_bowl();
-  }
-    cout<<"It's the end of the day"<<endl;
-  while(size>0)
-  {
     dequeue();
   }
+  cout<<"\nIt's the end of the day"<<endl;
+  pressEnterToContinue();
 }
 
 void queue::print_order(){

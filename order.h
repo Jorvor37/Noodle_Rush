@@ -34,9 +34,7 @@ class order
         bool select_soup();
         bool select_veg();
         void make();
-        void cashier();
-        void tutorialCashier();
-        void endGame();
+        void cashier(int=1);
         string get_name();
 };
 
@@ -101,9 +99,10 @@ bool order::select_noodle()
     do{
         //system("clear"); 
         fflush(stdin);
-        cout<<"Select Noodle's Type?"<<endl;
-        cout<<" 1. Rice Noodle"<<endl<<" 2. Wide Rice Noodle"<<endl<<" 3. Egg Noodle"<<endl;
+        cout<<"Select \033[33mNoodle\033[0m Type?"<<endl;
+        cout<<" 1. Rice Noodles"<<endl<<" 2. Wide Rice Noodles"<<endl<<" 3. Egg Noodles"<<endl;
         cin>>x;
+        if (x<1 || x>3) cout<<"Insert number between 1-3"<<endl;
     } while (x<1 || x>3);
 
     if (x!=noodle) 
@@ -122,9 +121,10 @@ bool order::select_meat()
     {
         //system("clear");
         fflush(stdin);
-        cout<<"Select Meat's Type?"<<endl;
+        cout<<"Select \033[31mMeat\033[0m Type?"<<endl;
         cout<<" 1. Pork"<<endl<<" 2. Beef"<<endl<<" 3. Seafood"<<endl;
         cin>>x;
+        if (x<1 || x>3) cout<<"Insert number between 1-3"<<endl;
     } while (x<1 || x>3);
 
     if (x!=meat) 
@@ -143,9 +143,10 @@ bool order::select_soup()
     {
         //system("clear"); 
         fflush(stdin);
-        cout<<"Select Soup's Type?"<<endl;
+        cout<<"Select \033[34mSoup\033[0m Type?"<<endl;
         cout<<" 1. Dried Noodle"<<endl<<" 2. Clear Soup"<<endl<<" 3. Tom Yum Soup"<<endl<<" 4. Nam Tok Soup"<<endl;
         cin>>x;
+        if (x<1 || x>4) cout<<"Insert number between 1-4"<<endl;
     } while (x<1 || x>4);
 
     if (x!=soup) 
@@ -164,9 +165,10 @@ bool order::select_veg()
     {
         //system("clear"); 
         fflush(stdin);
-        cout<<"With Veggies?"<<endl;
+        cout<<"With \033[32mVeggies\033[0m?"<<endl;
         cout<<" 1. Yes"<<endl<<" 2. No"<<endl;
         cin>>x;
+        if (x<1 || x>2) cout<<"Insert number between 1-3"<<endl;
     } while (x<1 || x>2);
 
     if (x!=veg) 
@@ -189,54 +191,21 @@ void order::make(){
   meat = select_meat();
   soup = select_soup();
   veg = select_veg();
+  cout<<endl<<name<<" is ready to serve!"<<endl;
   pressEnterToContinue();
-  cout<<name<<" is ready to serve!"<<endl<<endl;
   cashier();
-  fflush(stdin);
-  pressEnterToContinue();
 }
 
-void order::cashier()
+void order::cashier(int x) //if x==0 -> tutorial
 {
         float payment = price + ((rand() % 100 + 1)); // Random payment larger than menu price
         float correctChange = payment - price;
         float playerChange;
         float finalChange;
 
-
-        cout << "Menu Price: $" << price << endl;
-        cout << "Customer pays: $" << payment << endl;
-        cout << "Calculate the change to give back to the customer: $";
-        cin >> playerChange;
-
-        if (playerChange == correctChange) {
-            float tip = 0.3 * price;
-            cout << "Correct! You give the right change and earned a 30'%' tip: $" << tip << endl;
-            finalChange = price + tip;
-            money += finalChange;
-        } 
-        else if (playerChange < correctChange) {
-            cout << "Wrong! You gave less money back. The customer complains and requests more payment." << endl;
-            cout << "You should have given: $" << correctChange << " but you gave: $" << playerChange << endl;
-            finalChange = price-(correctChange-playerChange);
-            money += finalChange;
-        } 
-        else {
-            cout << "Wrong! You gave too much money back. The customer happily takes the extra money." << endl;
-            cout << "You should have given: $" << correctChange << " but you gave: $" << playerChange << endl;
-            finalChange = payment-playerChange;
-            money += finalChange;
-        }
-
-        cout << "Final Income $" << finalChange <<endl;
-        cout << "Total Cash $" << money << endl;
-}
-
-void order::tutorialCashier(){
-    float payment = price + ((rand() % 100 + 1)); // Random payment larger than menu price
-        float correctChange = payment - price;
-        float playerChange;
-        float finalChange;
+        cout<<"____________________"<<endl<<endl;
+        cout<<"      Cashier"<<endl;
+        cout<<"____________________"<<endl<<endl;
 
 
         cout << "Menu Price: $" << price << endl;
@@ -246,38 +215,30 @@ void order::tutorialCashier(){
 
         if (playerChange == correctChange) {
             float tip = 0.3 * price;
-            cout << "Correct! You give the right change and earned a 30'%' tip: $" << tip << endl;
+            cout << "\nCorrect! You give the right change and earned a 30% tip: $" << tip << endl;
             finalChange = price + tip;
-            tutorialMoney += finalChange;
+            if (x!=0) money += finalChange;
+            else tutorialMoney += finalChange;
         } 
         else if (playerChange < correctChange) {
-            cout << "Wrong! You gave less money back. The customer complains and requests more payment." << endl;
+            cout << "\nWrong! You gave less money back." << endl;
             cout << "You should have given: $" << correctChange << " but you gave: $" << playerChange << endl;
-            finalChange = price-(correctChange-playerChange);
-            tutorialMoney += finalChange;
+            cout << "The customer complains and requests 50% discount."<<endl;
+            finalChange = price/2;
+            if (x!=0) money += finalChange;
+            else tutorialMoney += finalChange;
         } 
         else {
-            cout << "Wrong! You gave too much money back. The customer happily takes the extra money." << endl;
+            cout << "\nWrong! You gave too much money back. The customer happily takes the extra money." << endl;
             cout << "You should have given: $" << correctChange << " but you gave: $" << playerChange << endl;
             finalChange = payment-playerChange;
-            tutorialMoney += finalChange;
+            if (x!=0) money += finalChange;
+            else tutorialMoney += finalChange;
         }
 
-        cout << "Final Income $" << finalChange <<endl;
-        cout << "Total Cash $" << tutorialMoney << endl;
-}
-
-void order::endGame()
-{
-    system("clear");
-    cout << "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|" << endl;
-    cout << "|       "<<"You've donate $" <<setw(7)<< money << "       |" << endl;
-    cout << "|  providing food for " <<setw(4)<< (int)money/25 << " people    |" << endl;
-    cout << "|＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|" << endl;
-    cout << "           \\ (• ᴗ •) /" << endl;
-    cout << "            \\       /" << endl;
-    sleep(1);
-    pressEnterToContinue();
+        cout << "Final Income: $" << finalChange <<endl;
+        if (x!=0) cout << "Total Cash: $" << money << endl<<endl;
+        else cout << "Total Cash: $" << tutorialMoney << endl<<endl;
 }
 
 #endif

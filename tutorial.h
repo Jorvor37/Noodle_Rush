@@ -36,9 +36,9 @@ int tutorial()
     cout<<"\nA bowl is ready to serve!"<<endl;
     cout<<"Let's check bill! \n"<<endl;
     
-    bowl.tutorialCashier();
+    bowl.cashier(0);
 
-    pressEnterToContinue();
+    pressEnterToContinue(); 
     
     system("clear");
     cout<<"\t\t\t   Let's get started! \n";

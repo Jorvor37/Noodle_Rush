@@ -10,11 +10,11 @@ using namespace std;
 
 void timer(int sec)
 {
-    cout << "\n\n\t\t\t\t\t";
+    cout << "\n\n\t\t\t\t\t\t";
     cout << "You have " << sec << " sec to remember!"<<endl;       
     for(int i = 0; i < sec; i++)
     {
-        cout << "\t\t\t\t\t\t"; 
+        cout << "\t\t\t\t\t"; 
         for(int j = 0; j <= i; j++) {
             cout << "[]";
         }
@@ -30,9 +30,9 @@ void timer(int sec)
 void pressEnterToContinue()
 {
     fflush(stdin);
-    cout << "Press Enter to Continue"<<endl;
+    cout << "\nPress Enter to Continue"<<endl;
     while (getchar()!='\n');
-    //system("clear");
+    system("clear");
 }
 
 int doYesNo()
@@ -40,7 +40,7 @@ int doYesNo()
     char ans;
     do{
         fflush(stdin);
-        cout << "answer Y or N: ";
+        cout << "Answer(Y/N): ";
         cin >> ans;
         if(ans=='y'||ans=='Y') return 1;
         else if(ans=='n'||ans=='N') return 2;
@@ -58,7 +58,7 @@ int prologue()
     sleep(3);
     cout<<"Inspired by their generosity, I now carry on the family business with a mission: \n\n";
     sleep(2);
-    cout<<"to sustain our livelihood while generating enough profit to support those struggling with poverty and hunger. \n\n";
+    cout<<"To sustain our livelihood while generating enough profit to support those struggling with poverty and hunger. \n\n";
     sleep(3);
     cout<<"Welcome to our noodle shop, where every bowl served brings hope to our community. \n\n";
     
