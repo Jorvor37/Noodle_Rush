@@ -9,6 +9,7 @@
 #include "tutorial.h"
 #include "file.h"
 #include "increase_file.h"
+#include "prologue.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ int main(){
     string current_name;
     check_and_write_person(list, current_name);
 
+    prologue();
     //tutorial();
     //Init game engine
     //Game game;
