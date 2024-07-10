@@ -35,6 +35,7 @@ class order
         void make();
         void cashier();
         void tutorialCashier();
+        void endGame();
         string get_name();
 };
 
@@ -263,6 +264,37 @@ void order::tutorialCashier(){
 
         cout << "Final Income $" << finalChange <<endl;
         cout << "Total Cash $" << tutorialMoney << endl;
+}
+
+void order::endGame()
+{
+    system("clear");
+    cout <<"                 :#%@@@@@%=                 " <<endl;
+    cout <<"              :#@@@@@@@@@@@@@-              " <<endl;
+    cout <<"             *@@@@@@@@@@@@@@@@%.            " <<endl;
+    cout <<"            +@@@@@@@@@@@@@@@@@@%            " <<endl;
+    cout <<"            @@@@@@@@@@@@@@@@@@@@=           " <<endl;
+    cout <<"           :@@@@@@@@@@@@@@@@@@@@#           " <<endl;
+    cout <<"           .@@@@@@@@@@@@@@@@@@@@*           " <<endl;
+    cout <<"            #@@@@@@@@@@@@@@@@@@@.           " <<endl;
+    cout <<"            :@@@@@@@@@@@@@@@@@@+            " <<endl;
+    cout <<"             .@@@@@@@@@@@@@@@@+             " <<endl;
+    cout <<"               +@@@@@@@@@@@@%.              " <<endl;
+    cout <<"                 :*@@@@@@#=.                " <<endl;
+    cout <<"            .=#%@@@@@@@@@@@@@%+.            " <<endl;
+    cout <<"         -#@@@@@@@@@@@@@@@@@@@@@@%+.        " <<endl;
+    cout <<"      .*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:      " <<endl;
+    cout <<"     *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.    " <<endl;
+    cout <<"   :@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+   " <<endl;
+    cout <<"  :@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*  " <<endl;
+    cout <<" .@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+ " <<endl;
+    cout <<":*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%." <<endl;
+    cout <<"=%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:" <<endl;
+    cout <<" .%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%+=\n" <<endl;
+    sleep(1);
+    cout << "You've donate $" << money << endl;
+    cout << "And save " << money/25 << " people" << endl;
+    pressEnterToContinue();
 }
 
 #endif

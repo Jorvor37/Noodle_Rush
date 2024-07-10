@@ -30,7 +30,9 @@ int main(){
     int i;
     int a,b,c,d;
 
-    tutorial();
+    cout << "Have you ever play the game before?" <<endl;
+    if(doYesNo()==2) tutorial();
+    system("clear");
 
 /*
 cout<<"/*   ____         _____                     _   _                 _ _       */
@@ -60,7 +62,7 @@ cout<<"/*   ____         _____                     _   _                 _ _    
         list.sort_by_money();
         write_list_to_file(list, "filename.txt");
     }
-    return 0;
+    bowl.endGame();
     
     system("clear");
     print_current_player(list, current_name);
