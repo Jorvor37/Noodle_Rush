@@ -9,7 +9,6 @@
 #include "tutorial.h"
 #include "file.h"
 #include "increase_file.h"
-#include "prologue.h"
 
 using namespace std;
 
