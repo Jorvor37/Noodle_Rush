@@ -45,6 +45,7 @@ int doYesNo()
         if(ans=='y'||ans=='Y') return 1;
         else if(ans=='n'||ans=='N') return 2;
     } while (ans!='y'||ans!='Y'||ans!='n'||ans!='N');
+    return 0;
 }
 
 int prologue()
