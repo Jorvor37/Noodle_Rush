@@ -11,7 +11,7 @@
 
 using namespace std;
 
-float money=0;
+float money=0, tutorialMoney=0;
 
 class order
 {
@@ -34,6 +34,7 @@ class order
         bool select_veg();
         void make();
         void cashier();
+        void tutorialCashier();
         string get_name();
 };
 
@@ -227,6 +228,41 @@ void order::cashier()
 
         cout << "Final Income $" << finalChange <<endl;
         cout << "Total Cash $" << money << endl;
+}
+
+void order::tutorialCashier(){
+    float payment = price + ((rand() % 100 + 1)); // Random payment larger than menu price
+        float correctChange = payment - price;
+        float playerChange;
+        float finalChange;
+
+
+        cout << "Menu Price: $" << price << endl;
+        cout << "Customer pays: $" << payment << endl;
+        cout << "Calculate the change to give back to the customer: $";
+        cin >> playerChange;
+
+        if (playerChange == correctChange) {
+            float tip = 0.3 * price;
+            cout << "Correct! You give the right change and earned a 30'%' tip: $" << tip << endl;
+            finalChange = price + tip;
+            tutorialMoney += finalChange;
+        } 
+        else if (playerChange < correctChange) {
+            cout << "Wrong! You gave less money back. The customer complains and requests more payment." << endl;
+            cout << "You should have given: $" << correctChange << " but you gave: $" << playerChange << endl;
+            finalChange = price-(correctChange-playerChange);
+            tutorialMoney += finalChange;
+        } 
+        else {
+            cout << "Wrong! You gave too much money back. The customer happily takes the extra money." << endl;
+            cout << "You should have given: $" << correctChange << " but you gave: $" << playerChange << endl;
+            finalChange = payment-playerChange;
+            tutorialMoney += finalChange;
+        }
+
+        cout << "Final Income $" << finalChange <<endl;
+        cout << "Total Cash $" << tutorialMoney << endl;
 }
 
 #endif

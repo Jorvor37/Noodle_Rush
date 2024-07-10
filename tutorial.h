@@ -31,6 +31,9 @@ int tutorial()
     bowl.select_meat();
     bowl.select_soup();
     bowl.select_veg();
+    bowl.tutorialCashier();
+
+    pressEnterToContinue();
     
     system("clear");
     cout<<"\t\t\t   Let's get started! \n";
