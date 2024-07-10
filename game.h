@@ -1,9 +1,10 @@
+#ifndef game_h
+#define game_h
+
 #include <iostream>
 #include <unistd.h>
 #include <stdio.h> 
 #include <stdlib.h>
-#ifndef game_h
-#define game_h
 
 using namespace std;
 
