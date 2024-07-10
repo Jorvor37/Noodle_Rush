@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <stdio.h> 
 #include <stdlib.h>
+#include <iomanip>
 
 
 #include "stdlib.h"
@@ -269,31 +270,13 @@ void order::tutorialCashier(){
 void order::endGame()
 {
     system("clear");
-    cout <<"                 :#%@@@@@%=                 " <<endl;
-    cout <<"              :#@@@@@@@@@@@@@-              " <<endl;
-    cout <<"             *@@@@@@@@@@@@@@@@%.            " <<endl;
-    cout <<"            +@@@@@@@@@@@@@@@@@@%            " <<endl;
-    cout <<"            @@@@@@@@@@@@@@@@@@@@=           " <<endl;
-    cout <<"           :@@@@@@@@@@@@@@@@@@@@#           " <<endl;
-    cout <<"           .@@@@@@@@@@@@@@@@@@@@*           " <<endl;
-    cout <<"            #@@@@@@@@@@@@@@@@@@@.           " <<endl;
-    cout <<"            :@@@@@@@@@@@@@@@@@@+            " <<endl;
-    cout <<"             .@@@@@@@@@@@@@@@@+             " <<endl;
-    cout <<"               +@@@@@@@@@@@@%.              " <<endl;
-    cout <<"                 :*@@@@@@#=.                " <<endl;
-    cout <<"            .=#%@@@@@@@@@@@@@%+.            " <<endl;
-    cout <<"         -#@@@@@@@@@@@@@@@@@@@@@@%+.        " <<endl;
-    cout <<"      .*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:      " <<endl;
-    cout <<"     *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.    " <<endl;
-    cout <<"   :@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+   " <<endl;
-    cout <<"  :@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*  " <<endl;
-    cout <<" .@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+ " <<endl;
-    cout <<":*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%." <<endl;
-    cout <<"=%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:" <<endl;
-    cout <<" .%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%+=\n" <<endl;
+    cout << "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|" << endl;
+    cout << "|       "<<"You've donate $" <<setw(7)<< money << "       |" << endl;
+    cout << "|  providing food for " <<setw(4)<< (int)money/25 << " people    |" << endl;
+    cout << "|＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|" << endl;
+    cout << "           \\ (• ᴗ •) /" << endl;
+    cout << "            \\       /" << endl;
     sleep(1);
-    cout << "You've donate $" << money << endl;
-    cout << "And save " << money/25 << " people" << endl;
     pressEnterToContinue();
 }
 
