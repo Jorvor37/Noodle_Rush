@@ -2,7 +2,6 @@
 #define LINKEDLIST_PERSON_H
 
 #include "node_person.h"
-#include "Cal.h"
 
 using namespace std;
 
