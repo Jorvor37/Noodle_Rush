@@ -6,7 +6,6 @@
 #include "order.h"
 #include "game.h"
 #include "node.h"
-#include "LL.h"
 #include "queue.h"
 #include "tutorial.h"
 #include "file.h"
@@ -51,8 +50,8 @@ int main(){
             d = rand()%2+1;
             q.enqueue(order(a,b,c,d,time));
         }
-        //q.print_order();
         q.do_order();
+        pressEnterToContinue();
         
         day++;
         increaseday(list, current_name);
@@ -71,10 +70,10 @@ int main(){
 void endGame()
 {
     system("clear");
-    cout << "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|" << endl;
-    cout << "|       "<<"You've donate $" <<setw(7)<< money << "       |" << endl;
-    cout << "|  providing food for " <<setw(4)<< (int)money/25 << " people    |" << endl;
-    cout << "|＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|" << endl;
+    cout << "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|" << endl;
+    cout << "|       "<<"You've donated $" <<setw(7)<< money << "       |" << endl;
+    cout << "|   providing food for " <<setw(4)<< (int)money/25 << " people    |" << endl;
+    cout << "|＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|" << endl;
     cout << "           \\ (• ᴗ •) /" << endl;
     cout << "            \\       /" << endl;
     sleep(1);

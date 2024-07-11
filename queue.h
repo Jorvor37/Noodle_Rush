@@ -67,12 +67,11 @@ void queue::do_order(){
     dequeue();
   }
   cout<<"\nIt's the end of the day"<<endl;
-  pressEnterToContinue();
 }
 
 void queue::print_order(){
    nodePtr t;
-  for(t=headPtr; t; t=t->next)
+  for(t=headPtr; t; t=t->get_next())
   {
     t->print();
   }
@@ -85,7 +84,6 @@ queue::queue(){
     
 }
 queue::~queue(){
-    cout<<"You've completed all 7 days"<<endl;
     while(size>0)
     {
       dequeue();

@@ -34,7 +34,9 @@ int tutorial()
     bowl.select_veg();
 
     cout<<"\nA bowl is ready to serve!"<<endl;
-    cout<<"Let's check bill! \n"<<endl;
+    cout<<"Let's check bill! "<<endl;
+    
+    pressEnterToContinue(); 
     
     bowl.cashier(0);
 
