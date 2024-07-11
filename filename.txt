@@ -1,2 +1,0 @@
-Name      Day       Money
-PANISA     1        108.5
