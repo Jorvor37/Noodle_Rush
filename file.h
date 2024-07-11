@@ -25,7 +25,7 @@ void check_and_write_person(LinkedList& list, string& current_name) {
     int date = 0;
     double money = 0;
 
-    struct stat buffer;
+   struct stat buffer;
     bool fileExists = (stat("filename.txt", &buffer) == 0);
 
     if (!fileExists) {
@@ -138,6 +138,16 @@ void print_scoreboard(const LinkedList& list, const string& filename) {
         current = current->next;
     }
     cout << endl << "--------------------------" << endl;
+}
+
+void increaseday(LinkedList& list, const string& current_name) {
+    list.increment_day(current_name);
+    write_list_to_file(list, "filename.txt");
+}
+
+void increasemoney(LinkedList& list, const string& current_name, double amount) {
+    list.increment_money(current_name, amount);
+    write_list_to_file(list, "filename.txt");
 }
 
 #endif // FILE_H

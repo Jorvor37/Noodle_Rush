@@ -6,15 +6,15 @@
 
 using namespace std;
 
-void increaseday(LinkedList& list, const string& current_name) {
-    list.increment_day(current_name);
-    write_list_to_file(list, "filename.txt");
-}
+// void increaseday(LinkedList& list, const string& current_name) {
+//     list.increment_day(current_name);
+//     write_list_to_file(list, "filename.txt");
+// }
 
-void increasemoney(LinkedList& list, const string& current_name, double amount) {
-    list.increment_money(current_name, amount);
-    write_list_to_file(list, "filename.txt");
-}
+// void increasemoney(LinkedList& list, const string& current_name, double amount) {
+//     list.increment_money(current_name, amount);
+//     write_list_to_file(list, "filename.txt");
+// }
 
 
 #endif // INCREASE_FILE_H
