@@ -2,7 +2,6 @@
 #define LINKEDLIST_PERSON_H
 
 #include "node_person.h"
-#include "person.h"
 
 using namespace std;
 
