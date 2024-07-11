@@ -6,6 +6,9 @@
 #include <iomanip>
 #include <cctype>
 #include <algorithm>
+#include <sys/stat.h>
+
+
 #include "person.h"
 #include "linkedlist_person.h"
 
@@ -23,6 +26,32 @@ void check_and_write_person(LinkedList& list, string& current_name) {
     string name;
     int date = 0;
     double money = 0;
+
+    struct stat buffer;
+    bool fileExists = (stat("filename.txt", &buffer) == 0);
+
+    if (!fileExists) {
+        ofstream MyFile("filename.txt");
+        MyFile << left << setw(10) << "Name" << setw(10) << "Day" << right << setw(4) << "Money" << endl;
+        MyFile.close();
+    }
+
+    while (true) {
+        cout << "Enter your name: ";
+        cin >> name;
+        string upper_name = to_uppercase(name);
+
+        if (!contains_letter(name)) {
+            cout << "Name must contain at least one letter. Please enter a valid name." << endl;
+        } else if (list.exists(upper_name)) {
+            cout << "Name '" << upper_name << "' already exists. Please enter a different name." << endl;
+            cout << "Existing Names: ";
+            list.print_list();
+        } else {
+            current_name = upper_name;
+            break;
+        }
+    }
 
     ifstream checkFile("filename.txt");
     if (!checkFile.is_open()) {
@@ -44,23 +73,6 @@ void check_and_write_person(LinkedList& list, string& current_name) {
     }
     checkFile.close();
 
-    while (true) {
-        cout << "Enter your name: ";
-        cin >> name;
-        string upper_name = to_uppercase(name);
-
-        if (!contains_letter(name)) {
-            cout << "Name must contain at least one letter. Please enter a valid name." << endl;
-        } else if (list.exists(upper_name)) {
-            cout << "Name '" << upper_name << "' already exists. Please enter a different name." << endl;
-            cout << "Existing Names: ";
-            list.print_list();
-        } else {
-            current_name = upper_name;
-            break;
-        }
-    }
-
     person p(current_name, date, money);
     list.append(p);
 
@@ -68,10 +80,6 @@ void check_and_write_person(LinkedList& list, string& current_name) {
     if (!MyFile.is_open()) {
         cerr << "Error opening file!" << endl;
         return;
-    }
-
-    if (isEmpty) {
-        MyFile << left << setw(10) << "Name" << setw(10) << "Day" << right << setw(4) << "Money" << endl; 
     }
 
     MyFile << left << setw(10) << p.get_name() << " " << setw(9) << p.get_day() << right << setw(5) << p.get_money() << endl;

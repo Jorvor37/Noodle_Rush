@@ -1,22 +1,32 @@
+//Include standard libary
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
 #include <unistd.h>
-
+//Include our libary
 #include "order.h"
 #include "game.h"
 #include "node.h"
 #include "LL.h"
+#include "increase_file.h"
+#include "linkedlist_person.h"
+#include "order.h"
 #include "queue.h"
 #include "tutorial.h"
-#include "file.h"
-#include "increase_file.h"
+#include "node.h"
+#include "person.h"
 
 using namespace std;
 
+//Declare function
 void endGame();
 
 int main(){
+    /*
+        1. Random new seed everytime
+        2. Declare LinkedList, queue, and order classes
+        3. Declare General variables
+    */
     srand(static_cast<unsigned int>(time(0)));
     
     LinkedList list;
@@ -27,10 +37,8 @@ int main(){
     queue q;
     order bowl;
     int day=1,time=8;
-    int i;
-    int a,b,c,d;
+    int i,a,b,c,d;
 
-    //prologue();
     cout << "\nDo you want to skip the tutorial?" <<endl;
     if(doYesNo()==2) tutorial();
     system("clear");

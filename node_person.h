@@ -1,7 +1,7 @@
 #ifndef NODE_PERSON_H
 #define NODE_PERSON_H
 
-#include "person.h"
+#include <string>
 
 using namespace std;
 
