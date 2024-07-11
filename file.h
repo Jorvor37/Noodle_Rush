@@ -25,7 +25,7 @@ void check_and_write_person(LinkedList& list, string& current_name) {
     int date = 0;
     double money = 0;
 
-   struct stat buffer;
+    struct stat buffer;
     bool fileExists = (stat("filename.txt", &buffer) == 0);
 
     if (!fileExists) {
@@ -33,6 +33,26 @@ void check_and_write_person(LinkedList& list, string& current_name) {
         MyFile << left << setw(10) << "Name" << setw(10) << "Day" << right << setw(4) << "Money" << endl;
         MyFile.close();
     }
+
+    ifstream checkFile("filename.txt");
+    if (!checkFile.is_open()) {
+        cerr << "Error opening file!" << endl;
+        return;
+    }
+
+    bool isEmpty = checkFile.peek() == ifstream::traits_type::eof();
+    string file_name;
+    int file_day;
+    double file_money;
+
+    if (!isEmpty) {
+        checkFile.ignore(numeric_limits<streamsize>::max(), '\n'); // Skip header
+        while (checkFile >> file_name >> file_day >> file_money) {
+            person temp(to_uppercase(file_name), file_day, file_money);
+            list.append(temp);
+        }
+    }
+    checkFile.close();
 
     while (true) {
         cout << "Enter your name: ";
@@ -50,26 +70,6 @@ void check_and_write_person(LinkedList& list, string& current_name) {
             break;
         }
     }
-
-    ifstream checkFile("filename.txt");
-    if (!checkFile.is_open()) {
-        cerr << "Error opening file!" << endl;
-        return;
-    }
-
-    bool isEmpty = checkFile.peek() == ifstream::traits_type::eof();
-    string file_name;
-    int file_day;
-    double file_money;
-
-    if (!isEmpty) {
-        checkFile.ignore(numeric_limits<streamsize>::max(), '\n');
-        while (checkFile >> file_name >> file_day >> file_money) {
-            person temp(to_uppercase(file_name), file_day, file_money);
-            list.append(temp);
-        }
-    }
-    checkFile.close();
 
     person p(current_name, date, money);
     list.append(p);

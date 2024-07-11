@@ -1,5 +1,0 @@
-Name      Day       Money
-MIND       0            0
-MIND       0            0
-MIND       0            0
-MIND       0            0
