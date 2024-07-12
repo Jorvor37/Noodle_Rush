@@ -1,8 +1,9 @@
+//Include standard library
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
 #include <unistd.h>
-
+//Include our library
 #include "order.h"
 #include "game.h"
 #include "node.h"
@@ -12,9 +13,27 @@
 
 using namespace std;
 
+//Declare function
 void endGame();
 
 int main(){
+
+    /*
+    Random new seed everytime
+    Declare LinkedList, queue, and order classes
+    Declare General variables
+    Skip tutorial option by use function doYesNo() from "game.h" and tutorial() from "tutorial.h"
+    Game will play for 7 days, then we use while loop
+    We random a b c d with diffrent seed everytime make the output diffrent
+    Call function enqueue() from "queue.h" to random the menu
+    Call function do_order() from "queue.h" to let player makes orders to serve.
+    Before the end of the day(end of while loop) we call function increaseday() and increasemoney() from "increase_file.h" to write data on filename.txt
+    Then sorting by money on filename.txt using sort_by_money() from "linkedlist_person.h"
+    Then update the file by write_list_to_file() function from "file.h"
+    Call function endGame() to display player result after 7 days
+    Lastly call function print_current_player() and print_scoreboard() from "file.h" to display the leader board
+    */
+    
     srand(static_cast<unsigned int>(time(0)));
     
     LinkedList list;
