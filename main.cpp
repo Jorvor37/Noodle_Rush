@@ -33,7 +33,7 @@ int main(){
     if(doYesNo()==2) tutorial();
     system("clear");
     
-    while(day<7){
+    while(day<=7){
         cout<<"   /)__/)"<<endl;
         cout<<"  (๑^᎑^๑)っ"<<endl;
         cout<<"|￣∪￣ ￣ |"<<endl;
