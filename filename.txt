@@ -1,0 +1,5 @@
+Name      Day       Money
+J          0            0
+G          0            0
+T          0            0
+D          0            0

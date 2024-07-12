@@ -20,6 +20,7 @@ int main(){
     LinkedList list;
     string current_name;
     system("clear");
+    prologue();
     check_and_write_person(list, current_name);
 
     queue q;
@@ -28,7 +29,6 @@ int main(){
     int i;
     int a,b,c,d;
 
-    //prologue();
     cout << "\nDo you want to skip the tutorial?" <<endl;
     if(doYesNo()==2) tutorial();
     system("clear");
@@ -69,6 +69,7 @@ int main(){
 void endGame()
 {
     system("clear");
+    cout << "7 days completed \n" << endl;
     cout << "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|" << endl;
     cout << "|       "<<"You've donated $" <<setw(7)<< money << "       |" << endl;
     cout << "|   providing food for " <<setw(4)<< (int)money/25 << " people    |" << endl;

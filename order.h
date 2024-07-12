@@ -97,17 +97,22 @@ bool order::select_noodle()
 {
     int x;
     do{
-        //system("clear"); 
         fflush(stdin);
         cout<<"Select \033[33mNoodle\033[0m Type?"<<endl;
         cout<<" 1. Rice Noodles"<<endl<<" 2. Wide Rice Noodles"<<endl<<" 3. Egg Noodles"<<endl;
         cin>>x;
-        if (x<1 || x>3) cout<<"Insert number between 1-3"<<endl;
+        if (cin.fail()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout<<"Please insert number between 1-3 "<<endl;
+        }
+        else if(x<1 || x>3) cout<<"Please insert number between 1-3 "<<endl;
+        //else break;
     } while (x<1 || x>3);
 
     if (x!=noodle) 
     { 
-        cout<<"You chose the wrong one! -5"<<endl; 
+        cout<<"You chose the wrong one! -5 "<<endl; 
         price -=5;
         return false;
     }
@@ -124,12 +129,19 @@ bool order::select_meat()
         cout<<"Select \033[31mMeat\033[0m Type?"<<endl;
         cout<<" 1. Pork"<<endl<<" 2. Beef"<<endl<<" 3. Seafood"<<endl;
         cin>>x;
-        if (x<1 || x>3) cout<<"Insert number between 1-3"<<endl;
+        if (cin.fail()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout<<"Please insert number between 1-3 "<<endl;
+        }
+        else 
+        if(x<1 || x>3) cout<<"Please insert number between 1-3 "<<endl;
+        else break;
     } while (x<1 || x>3);
 
     if (x!=meat) 
     { 
-        cout<<"You chose the wrong one! -5"<<endl; 
+        cout<<"You chose the wrong one! -5 "<<endl; 
         price -=5;
         return false;
     }
@@ -146,12 +158,18 @@ bool order::select_soup()
         cout<<"Select \033[34mSoup\033[0m Type?"<<endl;
         cout<<" 1. Dried Noodle"<<endl<<" 2. Clear Soup"<<endl<<" 3. Tom Yum Soup"<<endl<<" 4. Nam Tok Soup"<<endl;
         cin>>x;
-        if (x<1 || x>4) cout<<"Insert number between 1-4"<<endl;
+        if (cin.fail()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout<<"Please insert number between 1-4 "<<endl;
+        }
+        else if(x<1 || x>4) cout<<"Please insert number between 1-4 "<<endl;
+        else break;
     } while (x<1 || x>4);
 
     if (x!=soup) 
     { 
-        cout<<"You chose the wrong one! -5"<<endl; 
+        cout<<"You chose the wrong one! -5 "<<endl; 
         price -=5;
         return false;
     }
@@ -168,12 +186,18 @@ bool order::select_veg()
         cout<<"With \033[32mVeggies\033[0m?"<<endl;
         cout<<" 1. Yes"<<endl<<" 2. No"<<endl;
         cin>>x;
-        if (x<1 || x>2) cout<<"Insert number between 1-3"<<endl;
+        if (cin.fail()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout<<"Please insert number between 1-2 "<<endl;
+        }
+        else if(x<1 || x>3) cout<<"Please insert number between 1-2 "<<endl;
+        else break;
     } while (x<1 || x>2);
 
     if (x!=veg) 
     { 
-        cout<<"You chose the wrong one! -5"<<endl; 
+        cout<<"You chose the wrong one! -5 "<<endl; 
         price -=5;
         return false;
     }
@@ -208,21 +232,27 @@ void order::cashier(int x) //if x==0 -> tutorial
         cout<<"____________________"<<endl<<endl;
 
 
-        cout << "Menu Price: $" << price << endl;
-        cout << "Customer pays: $" << payment << endl;
-        cout << "Calculate the change to give back to the customer: $";
+        cout << "Menu Price: ฿" << price << endl;
+        cout << "Customer pays: ฿" << payment << endl;
+        cout << "Calculate the change to give back to the customer: ฿";
+        fflush(stdin);
         cin >> playerChange;
+        if (cin.fail()){
+            cin.clear();
+            cin.ignore();
+            playerChange=0;
+        }
 
         if (playerChange == correctChange) {
             float tip = 0.3 * price;
-            cout << "\nCorrect! You give the right change and earned a 30% tip: $" << tip << endl;
+            cout << "\nCorrect! You gave the right change and earned a 30% tip: ฿" << tip << endl;
             finalChange = price + tip;
             if (x!=0) money += finalChange;
             else tutorialMoney += finalChange;
         } 
         else if (playerChange < correctChange) {
             cout << "\nWrong! You gave less money back." << endl;
-            cout << "You should have given: $" << correctChange << " but you gave: $" << playerChange << endl;
+            cout << "You should have given: ฿" << correctChange << " but you gave: ฿" << playerChange << endl;
             cout << "The customer complains and requests 50% discount."<<endl;
             finalChange = price/2;
             if (x!=0) money += finalChange;
@@ -230,15 +260,15 @@ void order::cashier(int x) //if x==0 -> tutorial
         } 
         else {
             cout << "\nWrong! You gave too much money back. The customer happily takes the extra money." << endl;
-            cout << "You should have given: $" << correctChange << " but you gave: $" << playerChange << endl;
+            cout << "You should have given: ฿" << correctChange << " but you gave: ฿" << playerChange << endl;
             finalChange = payment-playerChange;
             if (x!=0) money += finalChange;
             else tutorialMoney += finalChange;
         }
 
-        cout << "Final Income: $" << finalChange <<endl;
-        if (x!=0) cout << "Total Cash: $" << money << endl<<endl;
-        else cout << "Total Cash: $" << tutorialMoney << endl<<endl;
+        cout << "Final Income: ฿" << finalChange <<endl;
+        if (x!=0) cout << "Total Cash: ฿" << money << endl<<endl;
+        else cout << "Total Cash: ฿" << tutorialMoney << endl<<endl;
 }
 
 #endif

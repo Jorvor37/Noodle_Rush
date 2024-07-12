@@ -13,7 +13,7 @@ int tutorial()
     sleep(1);
     cout<<"\t\t   7 days of selling. \n\n";
     sleep(1);
-    cout<<"As the day passes by , the harder it gets. -> Less time you will get. \n\n";
+    cout<<"As the day passes by, the harder it gets. -> Less time you will get. \n\n";
     sleep(2);
     cout<<"\t   The menu will be random each round.\n\n";
     sleep(1);
@@ -25,15 +25,15 @@ int tutorial()
     cout<<"\n\t"<<bowl.get_name()<<endl;
     cout<<"   ___________________________________________________________\n"<<endl;
     sleep(4);
-    cout<<"\tselect the right answer to serve a bowl of noodle.\n"<<endl;
-    cout<<"if you pick the wrong ingredient, your money will get deducted 5 baht each.\n"<<endl;
+    cout<<"\tSelect the right answer to serve a bowl of noodle.\n"<<endl;
+    cout<<"If you pick the wrong ingredient, your money will get deducted 5 baht each.\n"<<endl;
 
     bowl.select_noodle();
     bowl.select_meat();
     bowl.select_soup();
     bowl.select_veg();
 
-    cout<<"\nA bowl is ready to serve!"<<endl;
+    cout<<"\nThe noodle is ready to serve!"<<endl;
     cout<<"Let's check bill! "<<endl;
     
     pressEnterToContinue(); 
@@ -46,7 +46,6 @@ int tutorial()
     cout<<"\t\t\t   Let's get started! \n";
     sleep(2);
     system("clear");
-
     
     return 0;
 }
