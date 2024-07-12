@@ -20,7 +20,6 @@ public:
     void print_list() const;
     bool increment_day(const string& name);
     bool increment_money(const string& name, double amount);
-    void load_from_file(const string& filename);
     NodePtr get_head() const;
     void sort_by_money();
 };
@@ -92,22 +91,6 @@ bool LinkedList::increment_money(const string& name, double amount) {
     return false;
 }
 
-void LinkedList::load_from_file(const string& filename) {
-    ifstream checkFile(filename);
-    string file_name;
-    int file_day;
-    double file_money;
-    
-    if (!checkFile.is_open()) return;
-
-    checkFile.ignore(numeric_limits<streamsize>::max(), '\n');
-
-    while (checkFile >> file_name >> file_day >> file_money) {
-        person temp(file_name, file_day, file_money);
-        append(temp);
-    }
-    checkFile.close();
-}
 
 NodePtr LinkedList::get_head() const {
     return head;
