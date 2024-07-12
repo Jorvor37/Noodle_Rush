@@ -12,13 +12,28 @@
 
 using namespace std;
 
-void check_and_write_person(LinkedList& list, string& current_name);
-bool uniquename(const LinkedList& list, const string& name);
 bool contains_letter(const string& name);
+bool uniquename(const LinkedList& list, const string& name);
 string to_uppercase(const string& str);
+void check_and_write_person(LinkedList& list, string& current_name);
 void write_list_to_file(const LinkedList& list, const string& filename);
 void print_current_player(const LinkedList& list, const string& current_name);
 void print_scoreboard(const LinkedList& list, const string& filename);
+
+bool contains_letter(const string& name) {
+    return any_of(name.begin(), name.end(), ::isalpha);
+}
+
+bool uniquename(const LinkedList& list, const string& name) {
+    string upper_name = to_uppercase(name);
+    return !list.exists(upper_name);
+}
+
+string to_uppercase(const string& str) {
+    string upper_str = str;
+    transform(upper_str.begin(), upper_str.end(), upper_str.begin(), ::toupper);
+    return upper_str;
+}
 
 void check_and_write_person(LinkedList& list, string& current_name) {
     string name;
@@ -82,21 +97,6 @@ void check_and_write_person(LinkedList& list, string& current_name) {
 
     MyFile << left << setw(10) << p.get_name() << " " << setw(9) << p.get_day() << right << setw(5) << p.get_money() << endl;
     MyFile.close();
-}
-
-bool uniquename(const LinkedList& list, const string& name) {
-    string upper_name = to_uppercase(name);
-    return !list.exists(upper_name);
-}
-
-bool contains_letter(const string& name) {
-    return any_of(name.begin(), name.end(), ::isalpha);
-}
-
-string to_uppercase(const string& str) {
-    string upper_str = str;
-    transform(upper_str.begin(), upper_str.end(), upper_str.begin(), ::toupper);
-    return upper_str;
 }
 
 void write_list_to_file(const LinkedList& list, const string& filename) {

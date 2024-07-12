@@ -103,7 +103,7 @@ bool order::select_noodle()
         cin>>x;
         if (cin.fail()){
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore();
             cout<<"Please insert number between 1-3 "<<endl;
         }
         else if(x<1 || x>3) cout<<"Please insert number between 1-3 "<<endl;
@@ -131,7 +131,7 @@ bool order::select_meat()
         cin>>x;
         if (cin.fail()){
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore();
             cout<<"Please insert number between 1-3 "<<endl;
         }
         else 
@@ -160,7 +160,7 @@ bool order::select_soup()
         cin>>x;
         if (cin.fail()){
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore();
             cout<<"Please insert number between 1-4 "<<endl;
         }
         else if(x<1 || x>4) cout<<"Please insert number between 1-4 "<<endl;
@@ -188,7 +188,7 @@ bool order::select_veg()
         cin>>x;
         if (cin.fail()){
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore();
             cout<<"Please insert number between 1-2 "<<endl;
         }
         else if(x<1 || x>3) cout<<"Please insert number between 1-2 "<<endl;
